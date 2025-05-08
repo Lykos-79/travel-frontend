@@ -1,0 +1,58 @@
+import React, { useState } from "react";
+import Gallery from "./Gallery";
+import About from "./About";
+import InternationalTrips from "./InternationalTrips";
+import Reviews from "./Reviews";
+import Treks from "./Treks";
+import Trips from "./Trips";
+import ContactUs from "./ContactUs";
+import HoneyMoonPackages from "./HoneymoonPackages";
+import CallbackModal from "./CallbackModal";
+import Footer from "./Footer";
+
+export default function Home() {
+  const [showModal, setShowModal] = useState(false);
+  return (
+    <>
+      {/* Hero Section */}
+      <div
+        className="h-screen bg-cover bg-center relative"
+        style={{ backgroundImage: "url('/about.jpg')" }}
+      >
+        <div className="absolute inset-0 bg-black opacity-60"></div>
+        <div className="relative z-10 flex flex-col items-start justify-center h-full text-white px-8 max-w-7xl mx-auto">
+          <h1 className="text-5xl font-bold mb-4 mt-40">
+            Explore The World <br /> with{" "}
+            <span className="text-yellow-400">Hum Nikle Gaddi Leke</span>
+          </h1>
+          <p className="max-w-2xl">
+            We are always love to be introduced as youngsters turned <br />
+            passionate travelers cum explorer. We organise group trips all over{" "}
+            <br />
+            India and Internationally.
+          </p>
+          <button
+            className="mt-6 bg-yellow-400 text-black px-6 py-3 rounded-full flex items-center space-x-2 hover:bg-yellow-500 cursor-pointer"
+            onClick={() => setShowModal(true)}
+          >
+            <span>📞</span>
+            <span>Request a callback</span>
+          </button>
+          <CallbackModal
+            isOpen={showModal}
+            onClose={() => setShowModal(false)}
+          />
+        </div>
+      </div>
+      <About />
+      <Trips />
+      <HoneyMoonPackages />
+      <Treks />
+      <InternationalTrips />
+      <Reviews />
+      <Gallery />
+      <ContactUs />
+      <Footer />
+    </>
+  );
+}
