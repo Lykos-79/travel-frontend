@@ -35,7 +35,10 @@ export default function ContactUs() {
       console.log("Form Data Submitted:", formData);
 
       // Send to backend
-      await axios.post("http://localhost:5000/api/contact", formData); // adjust URL if in production
+      await axios.post(
+        "https://travel-backend-4fzk.onrender./api/contact",
+        formData
+      ); // adjust URL if in production
 
       alert("Thank you for contacting us!");
       setFormData({ name: "", phone: "", email: "", message: "" });

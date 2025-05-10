@@ -41,7 +41,10 @@ const CallbackModal = ({ isOpen, onClose }) => {
     setMessage("");
 
     try {
-      await axios.post("http://localhost:5000/api/callback", formData);
+      await axios.post(
+        "https://travel-backend-4fzk.onrender.com/api/callback",
+        formData
+      );
       setMessage("Submitted successfully!");
       setFormData({
         name: "",
