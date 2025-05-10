@@ -11,7 +11,7 @@ const testimonials = [
   {
     name: "Aditya Gupta",
     review: "From seamless booking to expertly curated itineraries...",
-    rating: 5,
+    rating: 4,
   },
   {
     name: "Dipesh Khawase",
@@ -21,17 +21,17 @@ const testimonials = [
   {
     name: "Meera Joshi",
     review: "The support team was fantastic...",
-    rating: 5,
+    rating: 4,
   },
   {
     name: "Rahul Verma",
     review: "Unforgettable trip! Everything was so well organized...",
-    rating: 5,
+    rating: 4,
   },
   {
     name: "Neha Shah",
     review: "Traveling with Hun Nikle Gaddi Leke was the best decision ever...",
-    rating: 5,
+    rating: 4,
   },
 ];
 
