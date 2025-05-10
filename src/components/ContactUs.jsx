@@ -36,7 +36,7 @@ export default function ContactUs() {
 
       // Send to backend
       await axios.post(
-        "https://travel-backend-4fzk.onrender./api/contact",
+        "https://travel-backend-4fzk.onrender.com/api/contact",
         formData
       ); // adjust URL if in production
 
