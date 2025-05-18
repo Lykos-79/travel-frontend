@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 const testimonials = [
   {
     name: "Riya Agarwal",
-    review: "Went on my first solo trip with Hun Nikle Gaddi Leke...",
+    review: "Went on my first solo trip with Hum Nikle Gaddi Leke...",
     rating: 5,
   },
   {

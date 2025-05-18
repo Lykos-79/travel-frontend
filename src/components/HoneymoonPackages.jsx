@@ -13,7 +13,7 @@ const HoneyMoonPackages = () => {
       name: "Kerela",
       duration: "7 days, 6 nights",
       price: "29,999",
-      image: "/trips/Manali2.jpg",
+      image: "/honeymoon/kerela.jpg",
     },
     {
       id: 2,
@@ -27,21 +27,21 @@ const HoneyMoonPackages = () => {
       name: "Bali",
       duration: "7 days, 6 nights",
       price: "39,999",
-      image: "/trips/Kheerganga.jpg",
+      image: "/honeymoon/bali.jpg",
     },
     {
       id: 4,
       name: "Andaman",
       duration: "5 days, 4 nights",
       price: "24,999",
-      image: "/trips/Tirthan.jpeg",
+      image: "/honeymoon/andaman.jpg",
     },
     {
       id: 5,
       name: "Sri Lanka",
       duration: "5 days, 4 nights",
       price: "29,999",
-      image: "/trips/Bir.jpeg",
+      image: "/international/Sri-Lanka.webp",
     },
     {
       id: 6,

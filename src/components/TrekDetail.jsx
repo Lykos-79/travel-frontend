@@ -752,7 +752,7 @@ const TrekDetails = () => {
   const trek = packages.find((p) => p.id === parseInt(id));
 
   const tabClasses = (tab) =>
-    `px-6 py-2 border rounded-t-md text-sm font-semibold transition ${
+    `px-4 py-2 border rounded-t-md text-sm font-semibold transition whitespace-nowrap ${
       current === tab
         ? "bg-yellow-600 text-white"
         : "bg-white text-black border-none hover:bg-yellow-200"
@@ -879,95 +879,98 @@ const TrekDetails = () => {
         </ul>
       </div>
 
-      <div className="mt-10 p-4 bg-white rounded shadow-2xl">
-        {/* Tabs */}
-        <div className="flex space-x-4 border-b pb-2">
-          <button
-            className={tabClasses("cancellation")}
-            onClick={() => setCurrent("cancellation")}
-          >
-            Cancellation Policy
-          </button>
-          <button
-            className={tabClasses("terms")}
-            onClick={() => setCurrent("terms")}
-          >
-            Terms and Conditions
-          </button>
-          <button
-            className={tabClasses("things")}
-            onClick={() => setCurrent("things")}
-          >
-            Things to Carry
-          </button>
-        </div>
+      <div className="w-full max-w-screen-sm mx-auto px-4 mt-10">
+        <div className="p-4 bg-white rounded shadow-2xl">
+          {/* Tabs */}
+          <div className="flex flex-wrap gap-2 border-b pb-2">
+            <button
+              className={tabClasses("cancellation")}
+              onClick={() => setCurrent("cancellation")}
+            >
+              Cancellation Policy
+            </button>
+            <button
+              className={tabClasses("terms")}
+              onClick={() => setCurrent("terms")}
+            >
+              Terms and Conditions
+            </button>
+            <button
+              className={tabClasses("things")}
+              onClick={() => setCurrent("things")}
+            >
+              Things to Carry
+            </button>
+          </div>
 
-        {/* Tab Content */}
-        <div className="h-80 p-5 bg-white">
-          {current === "cancellation" && (
-            <>
-              <p className="font-bold mb-2">
-                No Refund shall be made with respect to the initial booking
-                amount for any cancellations. However,
-              </p>
+          {/* Tab Content */}
+          <div className="p-5 bg-white break-words">
+            {current === "cancellation" && (
+              <>
+                <p className="font-bold mb-2">
+                  No Refund shall be made with respect to the initial booking
+                  amount for any cancellations. However,
+                </p>
+                <ul className="list-disc pl-5 space-y-2 text-gray-700">
+                  <li>
+                    If cancellations are made 30 days before the start date of
+                    the trip, 50% of the Advance amount will be charged as
+                    cancellation fees.
+                  </li>
+                  <li>
+                    If cancellations are made 15-30 days before the start date
+                    of the trip, 75% of the Advance amount will be charged as
+                    cancellation fees.
+                  </li>
+                  <li>
+                    If cancellations are made within 0-15 days before the start
+                    date of the trip, 100% of the Advance amount will be charged
+                    as cancellation fees.
+                  </li>
+                  <li>
+                    In the case of unforeseen weather conditions or government
+                    restrictions, certain activities may be cancelled. No refund
+                    will be provided for the same.
+                  </li>
+                </ul>
+              </>
+            )}
+
+            {current === "terms" && (
               <ul className="list-disc pl-5 space-y-2 text-gray-700">
+                <li>Trip bookings are non-transferable once confirmed.</li>
+                <li>Participants must follow safety protocols at all times.</li>
                 <li>
-                  If cancellations are made 30 days before the start date of the
-                  trip, 50% of the Advance amount will be charged as
-                  cancellation fees.
+                  All personal belongings are the responsibility of the
+                  participant.
                 </li>
                 <li>
-                  If cancellations are made 15-30 days before the start date of
-                  the trip, 75% of the Advance amount will be charged as
-                  cancellation fees.
-                </li>
-                <li>
-                  If cancellations are made within 0-15 days before the start
-                  date of the trip, 100% of the Advance amount will be charged
-                  as cancellation fees.
-                </li>
-                <li>
-                  In the case of unforeseen weather conditions or government
-                  restrictions, certain activities may be cancelled. No refund
-                  will be provided for the same.
+                  Disruptive behavior may lead to removal from the trip without
+                  refund.
                 </li>
               </ul>
-            </>
-          )}
+            )}
 
-          {current === "terms" && (
-            <ul className="list-disc pl-5 space-y-2 text-gray-700">
-              <li>Trip bookings are non-transferable once confirmed.</li>
-              <li>Participants must follow safety protocols at all times.</li>
-              <li>
-                All personal belongings are the responsibility of the
-                participant.
-              </li>
-              <li>
-                Disruptive behavior may lead to removal from the trip without
-                refund.
-              </li>
-            </ul>
-          )}
-
-          {current === "things" && (
-            <ul className="list-disc pl-5 space-y-2 text-gray-700">
-              <li>Government-issued ID card</li>
-              <li>Backpack with rain cover</li>
-              <li>Warm clothes, gloves, and sturdy shoes</li>
-              <li>Personal toiletries and towel</li>
-              <li>Medicines, sunscreen, and water bottle</li>
-            </ul>
-          )}
+            {current === "things" && (
+              <ul className="list-disc pl-5 space-y-2 text-gray-700">
+                <li>Government-issued ID card</li>
+                <li>Backpack with rain cover</li>
+                <li>Warm clothes, gloves, and sturdy shoes</li>
+                <li>Personal toiletries and towel</li>
+                <li>Medicines, sunscreen, and water bottle</li>
+              </ul>
+            )}
+          </div>
         </div>
-      </div>
 
-      <button
-        onClick={() => navigate(-1)}
-        className="mb-4 mt-6 px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-black rounded-md transition duration-200"
-      >
-        ← Back
-      </button>
+        {/* Back Button */}
+        <button
+          onClick={() => navigate(-1)}
+          className="mb-4 mt-6 w-full sm:w-auto px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-black rounded-md transition duration-200"
+        >
+          ← Back
+        </button>
+      </div>
     </div>
   );
 };

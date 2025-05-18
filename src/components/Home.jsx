@@ -26,9 +26,9 @@ export default function Home() {
             <span className="text-yellow-400">Hum Nikle Gaddi Leke</span>
           </h1>
           <p className="max-w-2xl">
-            We are always love to be introduced as youngsters turned <br />
-            passionate travelers cum explorer. We organise group trips all over{" "}
-            <br />
+            We love to introduced ourselves as young, passionate travellers and
+            explores. <br />
+            We organise group trips across all over <br />
             India and Internationally.
           </p>
           <button
