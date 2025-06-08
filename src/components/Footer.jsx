@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="mb-6 md:mb-0">
           <h2 className="text-2xl font-bold">Hum Nikle Gaddi Leke</h2>
           <p className="text-sm mt-2">humniklegaddileke@gmail.com</p>
-          <p className="text-sm">+91 98089 83147</p>
+          <p className="text-sm">+91 92142 02206</p>
         </div>
 
         {/* Important Links */}
