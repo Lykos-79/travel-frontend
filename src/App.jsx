@@ -6,7 +6,7 @@ import TripDetails from "./components/TripDetails";
 import TermsAndConditions from "./components/TermsAndConditions";
 import TrekDetails from "./components/TrekDetail";
 import GalleryPage from "./components/GalleryPage";
-import Login from "./admin/login";
+import Login from "./admin/Login";
 import Dashboard from "./admin/Dashboard";
 import EditTrip from "./admin/EditTrip";
 import AddTrip from "./admin/AddTrip";
