@@ -33,8 +33,9 @@ const Dashboard = () => {
     );
     if (!confirm) return;
 
+    const API = import.meta.env.VITE_API_URL;
     try {
-      await axios.delete(`http://localhost:5000/api/trips/${id}`, {
+      await axios.delete(`${API}/api/trips/${id}`, {
         headers: { Authorization: token },
       });
       setTrips(trips.filter((trip) => trip._id !== id));
