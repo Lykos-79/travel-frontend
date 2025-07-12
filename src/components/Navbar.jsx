@@ -11,7 +11,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const isTripDetailPage = location.pathname.startsWith("/trip/");
-  const isTrekDetailPage = location.pathname.startsWith("/trek/");
+  const isTrekDetailPage = location.pathname.startsWith("/treks/");
   const isTermsconditions = location.pathname.startsWith(
     "/terms-and-conditions"
   );
@@ -101,7 +101,7 @@ export default function Navbar() {
                 }}
                 className={`cursor-pointer flex flex-col items-center ${textColor}`}
               >
-                <span className="group-hover:text-white transition-colors duration-300">
+                <span className="group-hover:text-gray-700 transition-colors duration-300">
                   {link.label}
                 </span>
                 <div className="h-1 w-full bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left mt-1"></div>

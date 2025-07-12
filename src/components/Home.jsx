@@ -9,11 +9,30 @@ import ContactUs from "./ContactUs";
 import HoneyMoonPackages from "./HoneymoonPackages";
 import CallbackModal from "./CallbackModal";
 import Footer from "./Footer";
+import { Helmet } from "react-helmet-async";
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
+      <Helmet>
+        <title>Explore Treks, Trips & Honeymoon Packages | MyTravelSite</title>
+        <meta
+          name="description"
+          content="Discover your perfect getaway! Book treks, weekend trips, international holidays, and honeymoon packages with detailed plans and custom pricing."
+        />
+        <meta
+          property="og:title"
+          content="Explore Treks, Trips & Honeymoon Packages | MyTravelSite"
+        />
+        <meta
+          property="og:description"
+          content="Adventure or relaxation – we offer customizable treks, trips, and holidays for every traveler."
+        />
+        <meta property="og:url" content="https://yourdomain.com/" />
+        <link rel="canonical" href="https://yourdomain.com/" />
+      </Helmet>
+
       {/* Hero Section */}
       <div
         className="h-screen bg-cover bg-center relative"
