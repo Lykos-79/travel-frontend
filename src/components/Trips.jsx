@@ -168,9 +168,15 @@ const TripPackageSection = () => {
                     <span>{pkg.duration}</span>
                   </div>
                   <div className="flex items-center justify-between mt-2">
-                    <div className="text-white font-bold text-lg">
-                      ₹{pkg.multiPrice.quad}/-
-                    </div>
+                    {pkg.multiPrice?.quad ? (
+                      <div className="text-white font-bold text-lg">
+                        ₹{pkg.multiPrice.quad}/-
+                      </div>
+                    ) : (
+                      <div className="text-white font-bold text-lg">
+                        ₹{pkg.price || "N/A"}/-
+                      </div>
+                    )}
                     <Link to={`/trip/${pkg._id}`}>
                       <button className="bg-yellow-400 text-black px-4 py-1 rounded-md text-sm hover:bg-yellow-600 hover:scale-110 transition-transform duration-300">
                         Know More
