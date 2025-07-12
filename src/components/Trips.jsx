@@ -78,7 +78,7 @@ const TripPackageSection = () => {
   useEffect(() => {
     const API = import.meta.env.VITE_API_URL;
 
-    fetch(`${API}/api/trips?category=trek`)
+    fetch(`${API}/api/trips?category=trip`)
       .then((res) => res.json())
       .then((data) => {
         console.log("Fetched trips data:", data);
