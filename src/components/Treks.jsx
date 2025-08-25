@@ -112,6 +112,7 @@ const Treks = () => {
   // ];
 
   const [packages, setPackages] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const API = import.meta.env.VITE_API_URL;
@@ -122,7 +123,8 @@ const Treks = () => {
         console.log("Fetched trek data:", data);
         setPackages(data);
       })
-      .catch((err) => console.error("Error fetching treks:", err));
+      .catch((err) => console.error("Error fetching treks:", err))
+      .finally(() => setLoading(false));
   }, []);
 
   const handleScroll = () => {
@@ -183,41 +185,49 @@ const Treks = () => {
             className="flex space-x-6 overflow-x-auto scroll-smooth pb-4 px-2 hide-scrollbar"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            {packages.map((pkg) => (
-              <div
-                key={pkg._id}
-                className="min-w-[300px] max-w-[300px] h-[430px] flex-shrink-0 relative rounded-xl overflow-hidden shadow-lg group cursor-pointer"
-              >
-                <img
-                  src={pkg.image}
-                  alt={pkg.name}
-                  className="absolute inset-0 w-full h-full object-cover z-0 transform group-hover:scale-105 transition duration-300 ease-in-out pointer-events-none"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-yellow-700 via-transparent to-transparent z-10 p-4 flex flex-col justify-end pointer-events-auto">
-                  <h3 className="text-white text-xl font-semibold">
-                    {pkg.name}
-                  </h3>
-                  <div className="flex items-center text-white text-sm mt-1">
-                    <FaMapMarkerAlt className="mr-1" />
-                    <span>{pkg.location}</span>
-                  </div>
-                  <div className="flex items-center text-white text-sm mt-1">
-                    <FaClock className="mr-1" />
-                    <span>{pkg.duration}</span>
-                  </div>
-                  <div className="flex items-center justify-between mt-2">
-                    <div className="text-white font-bold text-lg">
-                      ₹{pkg.price}/-
+            {loading ? (
+              <div className="flex items-center justify-center w-full h-64">
+                <p className="text-xl font-bold text-yellow-500 animate-pulse">
+                  Loading amazing treks for you...
+                </p>
+              </div>
+            ) : (
+              packages.map((pkg) => (
+                <div
+                  key={pkg._id}
+                  className="min-w-[300px] max-w-[300px] h-[430px] flex-shrink-0 relative rounded-xl overflow-hidden shadow-lg group cursor-pointer"
+                >
+                  <img
+                    src={pkg.image}
+                    alt={pkg.name}
+                    className="absolute inset-0 w-full h-full object-cover z-0 transform group-hover:scale-105 transition duration-300 ease-in-out pointer-events-none"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-yellow-700 via-transparent to-transparent z-10 p-4 flex flex-col justify-end pointer-events-auto">
+                    <h3 className="text-white text-xl font-semibold">
+                      {pkg.name}
+                    </h3>
+                    <div className="flex items-center text-white text-sm mt-1">
+                      <FaMapMarkerAlt className="mr-1" />
+                      <span>{pkg.location}</span>
                     </div>
-                    <Link to={`/treks/${pkg._id}`}>
-                      <button className="bg-yellow-400 text-black px-4 py-1 rounded-md text-sm hover:bg-yellow-600 hover:scale-110 transition-transform duration-300">
-                        Know More
-                      </button>
-                    </Link>
+                    <div className="flex items-center text-white text-sm mt-1">
+                      <FaClock className="mr-1" />
+                      <span>{pkg.duration}</span>
+                    </div>
+                    <div className="flex items-center justify-between mt-2">
+                      <div className="text-white font-bold text-lg">
+                        ₹{pkg.price}/-
+                      </div>
+                      <Link to={`/treks/${pkg._id}`}>
+                        <button className="bg-yellow-400 text-black px-4 py-1 rounded-md text-sm hover:bg-yellow-600 hover:scale-110 transition-transform duration-300">
+                          Know More
+                        </button>
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
 
           {/* Scroll Button */}
